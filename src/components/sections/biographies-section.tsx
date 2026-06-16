@@ -118,7 +118,7 @@ const PEOPLE = [
   {
     name: "Аркадий Волож",
     field: "IT и поиск",
-    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/a17479ef-e8dc-427f-9ad7-c9dda8dd9fd0.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/d5ac22ab-e0ec-498c-8d6b-5f56e8807e82.jpg",
     short: "Сооснователь Яндекса",
     bio: "Создал крупнейшую технологическую компанию России и построил поисковик, который конкурирует с Google на русскоязычном рынке. Верил в силу данных и алгоритмов задолго до эпохи больших данных.",
     education: [
