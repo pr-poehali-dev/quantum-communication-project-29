@@ -142,10 +142,10 @@ export function OrientationSection() {
       ref={ref}
       className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 lg:px-16"
     >
-      <div className="mx-auto w-full max-w-3xl">
+      <div className="mx-auto w-full max-w-6xl">
         {/* Заголовок */}
         <div
-          className={`mb-10 transition-all duration-700 ${
+          className={`mb-8 transition-all duration-700 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
@@ -163,22 +163,61 @@ export function OrientationSection() {
           style={{ transitionDelay: "150ms" }}
         >
           {!started && !result && (
-            <div className="rounded-2xl border border-foreground/15 bg-foreground/10 p-8 backdrop-blur-md md:p-10">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-foreground/15">
-                <Icon name="Compass" size={28} className="text-foreground/80" />
+            <div className="grid gap-4 lg:grid-cols-2">
+              {/* Левая — что такое профориентация */}
+              <div className="rounded-2xl border border-foreground/15 bg-foreground/10 p-8 backdrop-blur-md">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/15">
+                  <Icon name="Compass" size={24} className="text-foreground/80" />
+                </div>
+                <h3 className="mb-3 font-sans text-xl font-light text-foreground">
+                  Что такое профориентация?
+                </h3>
+                <p className="mb-4 text-sm leading-relaxed text-foreground/60">
+                  Профориентация — это процесс, который помогает человеку понять, кем он хочет стать и в чём его настоящий потенциал. Это не просто выбор профессии, а глубокое исследование себя: своих ценностей, интересов и природных способностей.
+                </p>
+                <p className="text-sm leading-relaxed text-foreground/60">
+                  Правильно выбранный путь — это не случайность, а результат осознанной работы над собой. Именно с этого начинается карьера мечты.
+                </p>
               </div>
-              <h3 className="mb-3 font-sans text-2xl font-light text-foreground">
-                Найди свой вектор развития
-              </h3>
-              <p className="mb-8 text-sm leading-relaxed text-foreground/60">
-                5 простых вопросов — и ты узнаешь, какой тип деятельности тебе ближе всего, и какие профессии стоит рассмотреть.
-              </p>
-              <button
-                onClick={() => setStarted(true)}
-                className="rounded-xl bg-foreground/15 px-8 py-3 font-mono text-sm text-foreground transition-all duration-300 hover:bg-foreground/25 hover:scale-105"
-              >
-                Начать →
-              </button>
+
+              {/* Правая — наши партнёры + тест */}
+              <div className="flex flex-col gap-4">
+                <div className="rounded-2xl border border-foreground/15 bg-foreground/10 p-8 backdrop-blur-md">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/15">
+                    <Icon name="HandshakeIcon" size={24} className="text-foreground/80" fallback="Users" />
+                  </div>
+                  <h3 className="mb-3 font-sans text-xl font-light text-foreground">
+                    Работаем с опытными партнёрами
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-foreground/60">
+                    Наши партнёры — эксперты с многолетним опытом в карьерном консультировании. Они помогут тебе определить:
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      { icon: "TrendingUp", text: "Возможные направления развития" },
+                      { icon: "Star", text: "Сильные стороны и таланты" },
+                      { icon: "Heart", text: "Сферы интереса и призвание" },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-center gap-3">
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-foreground/10">
+                          <Icon name={item.icon} size={14} className="text-foreground/60" />
+                        </div>
+                        <span className="text-sm text-foreground/70">{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setStarted(true)}
+                  className="rounded-2xl border border-foreground/15 bg-foreground/10 px-8 py-5 text-left backdrop-blur-md transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/20 hover:scale-[1.02]"
+                >
+                  <p className="mb-1 font-mono text-xs text-foreground/40">Быстрый тест</p>
+                  <div className="flex items-center justify-between">
+                    <span className="font-sans text-lg font-light text-foreground">Узнай свой тип за 5 вопросов →</span>
+                  </div>
+                </button>
+              </div>
             </div>
           )}
 
