@@ -278,9 +278,9 @@ export default function Index() {
               <MagneticButton
                 size="lg"
                 variant="primary"
-                onClick={() => scrollToSection(2)}
+                onClick={() => scrollToSection(3)}
               >
-                Пройти тест
+                Найти ментора
               </MagneticButton>
               <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection(1)}>
                 Смотреть профессии
