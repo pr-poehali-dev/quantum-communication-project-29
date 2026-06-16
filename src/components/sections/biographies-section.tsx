@@ -44,7 +44,7 @@ const PEOPLE = [
   {
     name: "Данила Козловский",
     field: "Кино и театр",
-    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/15073552-6465-4f8c-966c-bd99f7c3ec9d.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/5be832d3-253f-4d3f-862f-dff1cca5520e.jpg",
     short: "Актёр, режиссёр, худрук МДТ",
     bio: "Один из самых востребованных актёров России. Снялся в голливудских проектах, стал режиссёром фильма «Чернобыль», а в 35 лет возглавил один из старейших театров страны — МДТ Льва Додина.",
     education: [
