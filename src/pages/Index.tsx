@@ -245,8 +245,8 @@ export default function Index() {
           ))}
         </div>
 
-        <MagneticButton variant="secondary" onClick={() => scrollToSection(2)}>
-          Пройти тест
+        <MagneticButton variant="secondary" onClick={() => scrollToSection(3)}>
+          Найти ментора
         </MagneticButton>
       </nav>
 
