@@ -192,7 +192,7 @@ export function OrientationSection() {
                   <p className="mb-5 text-sm leading-relaxed text-foreground/60">
                     Наши партнёры — эксперты с многолетним опытом в карьерном консультировании. Они помогут тебе определить:
                   </p>
-                  <div className="space-y-2">
+                  <div className="mb-6 space-y-2">
                     {[
                       { icon: "TrendingUp", text: "Возможные направления развития" },
                       { icon: "Star", text: "Сильные стороны и таланты" },
@@ -206,6 +206,10 @@ export function OrientationSection() {
                       </div>
                     ))}
                   </div>
+                  <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground/90 px-6 py-3 font-sans text-sm font-medium text-background transition-all duration-300 hover:bg-foreground hover:scale-[1.02]">
+                    <Icon name="CalendarCheck" size={16} className="text-background" />
+                    Заказать консультацию
+                  </button>
                 </div>
 
                 <button
