@@ -31,7 +31,7 @@ const PEOPLE = [
   {
     name: "Уоррен Баффетт",
     field: "Инвестиции и финансы",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Warren_Buffett_KU_Visit.jpg/800px-Warren_Buffett_KU_Visit.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/fb8822f8-1383-4bc8-9256-50d77bba7b85.jpg",
     short: "Величайший инвестор всех времён",
     bio: "Купил первые акции в 11 лет, а первый бизнес открыл в 13. Превратил небольшую текстильную компанию Berkshire Hathaway в конгломерат стоимостью сотни миллиардов. Его секрет — терпение и здравый смысл.",
     education: [
@@ -44,7 +44,7 @@ const PEOPLE = [
   {
     name: "Марина Цветаева",
     field: "Литература и поэзия",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Marina_Tsvetaeva.jpg/800px-Marina_Tsvetaeva.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/78491392-6502-49aa-92b7-1d2fe9842465.jpg",
     short: "Одна из величайших поэтов XX века",
     bio: "Писала стихи с шести лет. Прожила трагическую жизнь в эмиграции, потеряла дочь и мужа, но создала тексты, которые стали вершиной русской лирики. Её слова живут вопреки времени.",
     education: [
@@ -57,7 +57,7 @@ const PEOPLE = [
   {
     name: "Льюис Хэмилтон",
     field: "Автоспорт",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg/800px-Lewis_Hamilton_2016_Malaysia_2.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/4047c41f-e80f-426a-a649-fe5a5fa36916.jpg",
     short: "7-кратный чемпион Формулы 1",
     bio: "Вырос в скромной семье, начал картинг в 8 лет. Стал первым темнокожим чемпионом Ф1 и побил рекорд Михаэля Шумахера по числу побед. Доказал: целеустремлённость важнее происхождения.",
     education: [
@@ -69,7 +69,7 @@ const PEOPLE = [
   {
     name: "Билли Айлиш",
     field: "Музыка",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Billie_Eilish_2019.png/800px-Billie_Eilish_2019.png",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/0f043311-b61e-4086-88d5-72455b9c181e.jpg",
     short: "Самый молодой автор песни к фильму о Бонде",
     bio: "Записала первый хит в 14 лет прямо в спальне брата. В 18 стала самым молодым артистом, выигравшим Grammy во всех четырёх главных номинациях за один вечер.",
     education: [
@@ -82,7 +82,7 @@ const PEOPLE = [
   {
     name: "Снуп Догг",
     field: "Музыка и медиа",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Snoop_Dogg_-_Westfield_Sydney_%28cropped%29.jpg/800px-Snoop_Dogg_-_Westfield_Sydney_%28cropped%29.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/77e164c6-f408-4a74-a377-ad20e559c420.jpg",
     short: "Рэпер, медиамагнат и телеведущий Олимпиады",
     bio: "Вырос в Лонг-Биче в тяжёлых условиях. Через музыку создал медиаимперию, стал иконой поп-культуры и неожиданно — официальным репортёром NBC на Олимпиаде 2024.",
     education: [
@@ -94,7 +94,7 @@ const PEOPLE = [
   {
     name: "Джонатан Айв",
     field: "Промышленный дизайн",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Jonathan_Ive_2010.jpg/800px-Jonathan_Ive_2010.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/2a223d2c-4456-4c81-bf2d-eb0aa2d6cf4d.jpg",
     short: "Главный дизайнер iPhone, iMac и MacBook",
     bio: "Создал облик большинства культовых продуктов Apple — от iMac 1998 до iPhone. Его принцип: дизайн — это не про внешность, а про суть вещи.",
     education: [
@@ -106,7 +106,7 @@ const PEOPLE = [
   {
     name: "Павел Дуров",
     field: "IT и социальные сети",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/sixty/Pavel_Durov_on_stage_at_TechCrunch_Disrupt_SF_2015.jpg/800px-Pavel_Durov_on_stage_at_TechCrunch_Disrupt_SF_2015.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/ec4d1687-5461-414f-9a97-7d6be72232dd.jpg",
     short: "Основатель ВКонтакте и Telegram",
     bio: "Создал крупнейшую русскоязычную соцсеть ещё в студенчестве, а после конфликта с властями покинул Россию и построил Telegram — один из самых популярных мессенджеров в мире.",
     education: [
@@ -118,7 +118,7 @@ const PEOPLE = [
   {
     name: "Аркадий Волож",
     field: "IT и поиск",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Arkady_Volozh_-_Yandex.jpg/800px-Arkady_Volozh_-_Yandex.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/4f2edab2-25c9-4e4f-829e-9aca92d5714f.jpg",
     short: "Сооснователь Яндекса",
     bio: "Создал крупнейшую технологическую компанию России и построил поисковик, который конкурирует с Google на русскоязычном рынке. Верил в силу данных и алгоритмов задолго до эпохи больших данных.",
     education: [
@@ -130,7 +130,7 @@ const PEOPLE = [
   {
     name: "Сергей Брин",
     field: "IT и поиск",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sergey_Brin_Ted_2010.jpg/800px-Sergey_Brin_Ted_2010.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/e63d5ba6-2660-4e4a-86a0-a2881e0647ba.jpg",
     short: "Сооснователь Google",
     bio: "Эмигрировал из СССР в 6 лет. В аспирантуре Стэнфорда вместе с Ларри Пейджем придумал алгоритм PageRank — основу Google. Сегодня Google обрабатывает более 8 миллиардов запросов в день.",
     education: [
@@ -143,7 +143,7 @@ const PEOPLE = [
   {
     name: "Евгений Касперский",
     field: "Кибербезопасность",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Eugene_Kaspersky_2012.jpg/800px-Eugene_Kaspersky_2012.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/883a10d4-79aa-4d0e-b097-08d8a97f4546.jpg",
     short: "Основатель Kaspersky Lab",
     bio: "Увлёкся вирусами ещё в эпоху дискет. Создал одну из крупнейших в мире компаний по кибербезопасности, которая защищает сотни миллионов людей и тысячи корпораций по всему миру.",
     education: [
