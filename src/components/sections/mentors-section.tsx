@@ -19,24 +19,27 @@ export function MentorsSection() {
   return (
     <section
       ref={ref}
-      className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16"
+      className="flex w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
+      style={{ height: "100dvh" }}
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col pb-6">
         <div
           className={`mb-8 transition-all duration-700 md:mb-12 ${
             isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
           }`}
         >
-          <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h2 className="mb-2 font-sans text-4xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Менторы
           </h2>
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Поговори с профессионалом в Zoom</p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {MENTORS.map((mentor, i) => (
-            <MentorCard key={i} mentor={mentor} index={i} isVisible={isVisible} />
-          ))}
+        <div className="flex-1 overflow-y-auto" style={{ scrollbarWidth: "none" }}>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {MENTORS.map((mentor, i) => (
+              <MentorCard key={i} mentor={mentor} index={i} isVisible={isVisible} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

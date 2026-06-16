@@ -205,7 +205,8 @@ export function MbtiSection({ onShowProfessions }: { onShowProfessions?: (tab: "
   return (
     <section
       ref={ref}
-      className="flex h-screen w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
+      className="flex w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
+      style={{ height: "100dvh" }}
     >
       <div className="mx-auto flex h-full w-full max-w-3xl flex-col pb-6">
         <div
@@ -213,7 +214,7 @@ export function MbtiSection({ onShowProfessions }: { onShowProfessions?: (tab: "
             isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
           }`}
         >
-          <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h2 className="mb-2 font-sans text-4xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Тесты
           </h2>
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Узнай себя лучше</p>

@@ -97,27 +97,43 @@
     cursor: none;
   }
 
+  /* На тач-устройствах возвращаем стандартный курсор */
+  @media (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
+    button,
+    a,
+    [role="button"] {
+      cursor: pointer !important;
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
+    /* Фикс для iOS Safari — запрет резиновой прокрутки */
+    overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
   }
 
   [data-scroll-container] {
-    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+    overscroll-behavior-x: contain;
+    /* snap-скролл для iOS */
+    scroll-snap-type: x mandatory;
+    -webkit-scroll-snap-type: x mandatory;
+  }
+
+  [data-scroll-container] > section,
+  [data-scroll-container] > div {
+    scroll-snap-align: start;
+    -webkit-scroll-snap-align: start;
   }
 
   section {
+    /* dvh учитывает адресную строку Safari */
+    min-height: 100dvh;
     transform: translateZ(0);
-    will-change: transform;
-    contain: layout style paint;
-  }
-
-  button {
-    transform: translateZ(0);
-    backface-visibility: hidden;
   }
 }
 

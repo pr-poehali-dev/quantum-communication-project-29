@@ -174,7 +174,7 @@ export default function Index() {
   }, [currentSection])
 
   return (
-    <main className="relative h-screen w-full overflow-hidden bg-background">
+    <main className="relative w-full overflow-hidden bg-background" style={{ height: "100dvh" }}>
       <CustomCursor />
       <GrainOverlay />
 
@@ -214,7 +214,7 @@ export default function Index() {
       </div>
 
       <nav
-        className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-6 transition-opacity duration-700 md:px-12 ${
+        className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-opacity duration-700 md:px-12 md:py-6 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -222,12 +222,13 @@ export default function Index() {
           onClick={() => scrollToSection(0)}
           className="flex items-center gap-2 transition-transform hover:scale-105"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/15 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-foreground/25">
-            <span className="font-sans text-xl font-bold text-foreground">P</span>
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-foreground/15 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-foreground/25 md:h-10 md:w-10">
+            <span className="font-sans text-lg font-bold text-foreground md:text-xl">P</span>
           </div>
-          <span className="font-sans text-xl font-semibold tracking-tight text-foreground">PathFinder</span>
+          <span className="font-sans text-lg font-semibold tracking-tight text-foreground md:text-xl">PathFinder</span>
         </button>
 
+        {/* Десктоп меню */}
         <div className="hidden items-center gap-8 md:flex">
           {["Главная", "Профессии", "Тесты", "Менторы", "Профориентация", "Биографии"].map((item, index) => (
             <button
@@ -247,7 +248,22 @@ export default function Index() {
           ))}
         </div>
 
-        <MagneticButton variant="secondary" onClick={() => scrollToSection(3)}>
+        {/* Мобильное меню */}
+        <div className="flex items-center gap-2 md:hidden">
+          <div className="flex gap-1">
+            {[0,1,2,3,4,5].map((i) => (
+              <button
+                key={i}
+                onClick={() => scrollToSection(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  currentSection === i ? "w-5 bg-foreground" : "w-1.5 bg-foreground/30"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <MagneticButton variant="secondary" onClick={() => scrollToSection(3)} className="hidden md:flex">
           Найти ментора
         </MagneticButton>
       </nav>
@@ -255,18 +271,18 @@ export default function Index() {
       <div
         ref={scrollContainerRef}
         data-scroll-container
-        className={`relative z-10 flex h-screen overflow-x-auto overflow-y-hidden transition-opacity duration-700 ${
+        className={`relative z-10 flex overflow-x-auto overflow-y-hidden transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        style={{ height: "100dvh", scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Hero Section */}
-        <section className="flex min-h-screen w-screen shrink-0 flex-col justify-end px-6 pb-16 pt-24 md:px-12 md:pb-24">
+        <section className="flex w-screen shrink-0 flex-col justify-end px-6 pb-12 pt-20 md:px-12 md:pb-24" style={{ minHeight: "100dvh" }}>
           <div className="max-w-3xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
               <p className="font-mono text-xs text-foreground/90">Профориентация для поколения Alpha</p>
             </div>
-            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-6xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
+            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-4xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
               <span className="text-balance">
                 Найди и пойми профессию мечты
               </span>

@@ -140,7 +140,8 @@ export function OrientationSection() {
   return (
     <section
       ref={ref}
-      className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 lg:px-16"
+      className="flex w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
+      style={{ height: "100dvh" }}
     >
       <div className="mx-auto w-full max-w-6xl">
         {/* Заголовок */}
@@ -149,7 +150,7 @@ export function OrientationSection() {
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
-          <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h2 className="mb-2 font-sans text-4xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Профориентация
           </h2>
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Пойми свои сильные стороны</p>
