@@ -118,10 +118,47 @@ const TESTS = [
   },
 ]
 
+// ─── МАППИНГ: результат теста → отрасли в разделе Профессии ─────────────────
+const RESULT_TO_INDUSTRIES: Record<string, { tab: "popular" | "alpha"; groups: string[] }> = {
+  // MBTI
+  INTJ: { tab: "popular", groups: ["AI и данные", "IT и разработка", "Финансы и право"] },
+  INTP: { tab: "popular", groups: ["AI и данные", "IT и разработка", "Медицина и биотех"] },
+  ENTJ: { tab: "popular", groups: ["Управление и бизнес", "Финансы и право"] },
+  ENTP: { tab: "popular", groups: ["Управление и бизнес", "Маркетинг и продажи"] },
+  INFJ: { tab: "popular", groups: ["Образование", "Медицина и биотех"] },
+  INFP: { tab: "popular", groups: ["Дизайн и медиа", "Образование"] },
+  ENFJ: { tab: "popular", groups: ["Управление и бизнес", "Образование"] },
+  ENFP: { tab: "popular", groups: ["Дизайн и медиа", "Маркетинг и продажи"] },
+  ISTJ: { tab: "popular", groups: ["IT и разработка", "Финансы и право"] },
+  ISFJ: { tab: "popular", groups: ["Медицина и биотех", "Образование"] },
+  ESTJ: { tab: "popular", groups: ["Управление и бизнес", "Финансы и право"] },
+  ESFJ: { tab: "popular", groups: ["Маркетинг и продажи", "Образование"] },
+  ISTP: { tab: "alpha", groups: ["Робототехника и IoT", "Космос и транспорт"] },
+  ISFP: { tab: "popular", groups: ["Дизайн и медиа"] },
+  ESTP: { tab: "popular", groups: ["Маркетинг и продажи", "Финансы и право"] },
+  ESFP: { tab: "popular", groups: ["Дизайн и медиа", "Маркетинг и продажи"] },
+  // Holland
+  R: { tab: "alpha", groups: ["Робототехника и IoT", "Космос и транспорт"] },
+  I: { tab: "popular", groups: ["AI и данные", "Медицина и биотех"] },
+  A: { tab: "popular", groups: ["Дизайн и медиа"] },
+  S: { tab: "popular", groups: ["Образование", "Медицина и биотех"] },
+  E: { tab: "popular", groups: ["Управление и бизнес", "Маркетинг и продажи"] },
+  C: { tab: "popular", groups: ["Финансы и право", "IT и разработка"] },
+  // Schein
+  TF: { tab: "popular", groups: ["AI и данные", "Медицина и биотех"] },
+  GM: { tab: "popular", groups: ["Управление и бизнес"] },
+  AU: { tab: "popular", groups: ["IT и разработка", "Дизайн и медиа"] },
+  SE: { tab: "popular", groups: ["Финансы и право", "Управление и бизнес"] },
+  EC: { tab: "alpha", groups: ["AI и нейротех", "Метавселенная и XR"] },
+  SV: { tab: "popular", groups: ["Медицина и биотех", "Экология и наука"] },
+  CH: { tab: "alpha", groups: ["Биоинженерия", "Космос и транспорт"] },
+  LS: { tab: "popular", groups: ["Образование", "Дизайн и медиа"] },
+}
+
 // ─── КОМПОНЕНТ ────────────────────────────────────────────────────────────────
 type TestId = "mbti" | "holland" | "schein"
 
-export function MbtiSection() {
+export function MbtiSection({ onShowProfessions }: { onShowProfessions?: (tab: "popular" | "alpha", groups: string[]) => void }) {
   const { ref, isVisible } = useReveal(0.3)
   const [activeTest, setActiveTest] = useState<TestId | null>(null)
   const [step, setStep] = useState<"intro" | number | "result">("intro")
@@ -268,8 +305,20 @@ export function MbtiSection() {
                     ))}
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <button onClick={reset} className="font-mono text-xs text-foreground/40 hover:text-foreground/70 transition-colors">← Выбрать другой тест</button>
+                <div className="flex flex-wrap items-center gap-4">
+                  {result && RESULT_TO_INDUSTRIES[result.type] && onShowProfessions && (
+                    <button
+                      onClick={() => {
+                        const mapping = RESULT_TO_INDUSTRIES[result.type]
+                        onShowProfessions(mapping.tab, mapping.groups)
+                      }}
+                      className="flex items-center gap-2 rounded-xl bg-foreground/15 px-5 py-2.5 font-mono text-xs text-foreground transition-all duration-300 hover:bg-foreground/25 hover:scale-[1.03]"
+                    >
+                      <Icon name="ArrowRight" size={14} />
+                      Смотреть подходящие профессии
+                    </button>
+                  )}
+                  <button onClick={reset} className="font-mono text-xs text-foreground/40 hover:text-foreground/70 transition-colors">← Другой тест</button>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { useReveal } from "@/hooks/use-reveal"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Icon from "@/components/ui/icon"
 import { MagneticButton } from "@/components/magnetic-button"
 
@@ -164,10 +164,29 @@ const GEN_ALPHA_GROUPS = [
 
 type Tab = "popular" | "alpha"
 
-export function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
+export function WorkSection({
+  scrollToSection,
+  highlightTab,
+  highlightGroups,
+}: {
+  scrollToSection?: (index: number) => void
+  highlightTab?: Tab
+  highlightGroups?: string[]
+}) {
   const { ref, isVisible } = useReveal(0.3)
   const [activeTab, setActiveTab] = useState<Tab>("popular")
   const [openGroups, setOpenGroups] = useState<Set<string>>(new Set())
+
+  // Применяем highlight при изменении пропсов извне
+  const prevHighlight = useRef<string>("")
+  useEffect(() => {
+    if (!highlightTab || !highlightGroups?.length) return
+    const key = highlightTab + highlightGroups.join()
+    if (key === prevHighlight.current) return
+    prevHighlight.current = key
+    setActiveTab(highlightTab)
+    setOpenGroups(new Set(highlightGroups))
+  }, [highlightTab, highlightGroups])
 
   const groups = activeTab === "popular" ? POPULAR_GROUPS : GEN_ALPHA_GROUPS
 
@@ -205,6 +224,16 @@ export function WorkSection({ scrollToSection }: { scrollToSection?: (index: num
           </MagneticButton>
         </div>
 
+        {/* Подсказка из теста */}
+        {highlightGroups && highlightGroups.length > 0 && (
+          <div className="mb-3 flex items-center gap-2 rounded-xl border border-foreground/15 bg-foreground/8 px-4 py-2.5">
+            <Icon name="Sparkles" size={14} className="shrink-0 text-foreground/50" />
+            <p className="font-mono text-xs text-foreground/55">
+              На основе результата теста выделены подходящие отрасли
+            </p>
+          </div>
+        )}
+
         {/* Табы */}
         <div
           className={`mb-5 flex gap-2 transition-all duration-700 ${
@@ -231,6 +260,7 @@ export function WorkSection({ scrollToSection }: { scrollToSection?: (index: num
         <div className="flex-1 overflow-y-auto space-y-1" style={{ scrollbarWidth: "none" }}>
           {groups.map((group, gi) => {
             const isOpen = openGroups.has(group.industry)
+            const isHighlighted = highlightGroups?.includes(group.industry)
             return (
               <div
                 key={group.industry}
@@ -240,19 +270,24 @@ export function WorkSection({ scrollToSection }: { scrollToSection?: (index: num
                 {/* Заголовок группы */}
                 <button
                   onClick={() => toggleGroup(group.industry)}
-                  className="group flex w-full items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/10"
+                  className={`group flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 transition-all duration-300 ${
+                    isHighlighted
+                      ? "border-foreground/35 bg-foreground/15 hover:border-foreground/45 hover:bg-foreground/20"
+                      : "border-foreground/10 bg-foreground/5 hover:border-foreground/20 hover:bg-foreground/10"
+                  }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-foreground/10">
-                      <Icon name={group.icon} size={15} className="text-foreground/60" fallback="Briefcase" />
+                    <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${isHighlighted ? "bg-foreground/20" : "bg-foreground/10"}`}>
+                      <Icon name={group.icon} size={15} className={isHighlighted ? "text-foreground/80" : "text-foreground/60"} fallback="Briefcase" />
                     </div>
-                    <span className="font-sans text-sm font-light text-foreground">{group.industry}</span>
+                    <span className={`font-sans text-sm font-light transition-colors duration-300 ${isHighlighted ? "text-foreground" : "text-foreground"}`}>{group.industry}</span>
                     <span className="font-mono text-xs text-foreground/35">{group.professions.length}</span>
+                    {isHighlighted && <span className="font-mono text-xs text-foreground/50 rounded-full border border-foreground/20 px-2 py-0.5">рекомендовано</span>}
                   </div>
                   <Icon
                     name="ChevronDown"
                     size={16}
-                    className={`shrink-0 text-foreground/30 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} ${isHighlighted ? "text-foreground/50" : "text-foreground/30"}`}
                   />
                 </button>
 

@@ -13,6 +13,8 @@ export default function Index() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentSection, setCurrentSection] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [profHighlightTab, setProfHighlightTab] = useState<"popular" | "alpha" | undefined>()
+  const [profHighlightGroups, setProfHighlightGroups] = useState<string[] | undefined>()
   const touchStartY = useRef(0)
   const touchStartX = useRef(0)
   const shaderContainerRef = useRef<HTMLDivElement>(null)
@@ -298,8 +300,18 @@ export default function Index() {
           </div>
         </section>
 
-        <WorkSection scrollToSection={scrollToSection} />
-        <MbtiSection />
+        <WorkSection
+          scrollToSection={scrollToSection}
+          highlightTab={profHighlightTab}
+          highlightGroups={profHighlightGroups}
+        />
+        <MbtiSection
+          onShowProfessions={(tab, groups) => {
+            setProfHighlightTab(tab)
+            setProfHighlightGroups(groups)
+            scrollToSection(1)
+          }}
+        />
         <MentorsSection />
         <OrientationSection />
         <BiographiesSection />
