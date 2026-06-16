@@ -106,7 +106,7 @@ const PEOPLE = [
   {
     name: "Павел Дуров",
     field: "IT и социальные сети",
-    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/6b3bdb2d-f17d-4742-9add-348e88c6b48b.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/e57e8ba6-d8d0-4f86-b681-dd823497fcec.jpg",
     short: "Основатель ВКонтакте и Telegram",
     bio: "Создал крупнейшую русскоязычную соцсеть ещё в студенчестве, а после конфликта с властями покинул Россию и построил Telegram — один из самых популярных мессенджеров в мире.",
     education: [
