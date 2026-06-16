@@ -149,26 +149,73 @@ export function MbtiSection() {
         >
           {step === "intro" && (
             <div className="animate-in fade-in duration-500">
-              <p className="mb-6 max-w-xl text-lg leading-relaxed text-foreground/80">
-                12 вопросов — и ты узнаешь свой тип личности по методике MBTI. Это поможет лучше понять, какие
-                профессии подходят именно тебе.
-              </p>
-              <div className="mb-8 grid gap-3 sm:grid-cols-2">
-                {["Экстраверт или Интроверт?", "Сенсорик или Интуит?", "Логик или Этик?", "Решающий или Воспринимающий?"].map((item, i) => (
+              <div className="mb-6 grid gap-6 md:grid-cols-2 md:gap-8">
+                {/* Левая колонка — что это */}
+                <div>
+                  <div className="mb-2 flex items-center gap-2">
+                    <div className="h-px w-6 bg-foreground/40" />
+                    <span className="font-mono text-xs text-foreground/50">Что такое MBTI</span>
+                  </div>
+                  <p className="mb-4 text-base leading-relaxed text-foreground/80">
+                    MBTI (Myers–Briggs Type Indicator) — одна из самых популярных в мире систем типологии личности,
+                    основанная на теории Карла Юнга. Её используют HR-специалисты, психологи и карьерные консультанты
+                    в 117 странах.
+                  </p>
+                  <p className="text-base leading-relaxed text-foreground/80">
+                    Тест определяет твой тип из 16 возможных по четырём шкалам — и показывает, как ты думаешь,
+                    общаешься и принимаешь решения.
+                  </p>
+                </div>
+
+                {/* Правая колонка — зачем */}
+                <div>
+                  <div className="mb-2 flex items-center gap-2">
+                    <div className="h-px w-6 bg-foreground/40" />
+                    <span className="font-mono text-xs text-foreground/50">Зачем проходить</span>
+                  </div>
+                  <div className="space-y-3">
+                    {[
+                      { icon: "Compass", text: "Понять, какие профессии подходят именно тебе" },
+                      { icon: "Users", text: "Узнать, как ты работаешь в команде и чем отличаешься" },
+                      { icon: "Lightbulb", text: "Раскрыть свои сильные стороны и таланты" },
+                      { icon: "Map", text: "Выбрать осознанный путь — без случайных решений" },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-start gap-3">
+                        <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-foreground/15">
+                          <Icon name={item.icon} size={14} className="text-foreground/70" fallback="Check" />
+                        </div>
+                        <span className="text-sm leading-snug text-foreground/80">{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* 4 шкалы */}
+              <div className="mb-6 grid grid-cols-2 gap-2 md:grid-cols-4">
+                {[
+                  { left: "E Экстраверт", right: "Интроверт I" },
+                  { left: "S Сенсорик", right: "Интуит N" },
+                  { left: "T Логик", right: "Этик F" },
+                  { left: "J Решающий", right: "Воспринимающий P" },
+                ].map((scale, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3 rounded-xl border border-foreground/15 bg-foreground/10 px-4 py-3 backdrop-blur-md"
+                    className="rounded-xl border border-foreground/15 bg-foreground/10 px-3 py-3 backdrop-blur-md"
                   >
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground/20 font-mono text-xs text-foreground/70">
-                      {i + 1}
-                    </div>
-                    <span className="text-sm text-foreground/80">{item}</span>
+                    <p className="mb-1 font-mono text-xs font-medium text-foreground/80">{scale.left}</p>
+                    <div className="my-1.5 h-px w-full bg-foreground/20" />
+                    <p className="font-mono text-xs text-foreground/50">{scale.right}</p>
                   </div>
                 ))}
               </div>
-              <MagneticButton variant="primary" size="lg" onClick={() => setStep(0)}>
-                Начать тест
-              </MagneticButton>
+
+              <div className="flex items-center gap-4">
+                <MagneticButton variant="primary" size="lg" onClick={() => setStep(0)}>
+                  Пройти тест — 12 вопросов
+                </MagneticButton>
+                <span className="font-mono text-xs text-foreground/40">~3 минуты</span>
+              </div>
             </div>
           )}
 
