@@ -2,7 +2,6 @@ import { Shader, ChromaFlow, Swirl } from "shaders/react"
 import { CustomCursor } from "@/components/custom-cursor"
 import { GrainOverlay } from "@/components/grain-overlay"
 import { WorkSection } from "@/components/sections/work-section"
-import { TestSection } from "@/components/sections/test-section"
 import { MbtiSection } from "@/components/sections/mbti-section"
 import { MentorsSection } from "@/components/sections/mentors-section"
 import { BiographiesSection } from "@/components/sections/biographies-section"
@@ -78,7 +77,7 @@ export default function Index() {
       const deltaX = touchStartX.current - touchEndX
 
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
-        if (deltaY > 0 && currentSection < 6) {
+        if (deltaY > 0 && currentSection < 5) {
           scrollToSection(currentSection + 1)
         } else if (deltaY < 0 && currentSection > 0) {
           scrollToSection(currentSection - 1)
@@ -148,7 +147,7 @@ export default function Index() {
         const scrollLeft = scrollContainerRef.current.scrollLeft
         const newSection = Math.round(scrollLeft / sectionWidth)
 
-        if (newSection !== currentSection && newSection >= 0 && newSection <= 6) {
+        if (newSection !== currentSection && newSection >= 0 && newSection <= 5) {
           setCurrentSection(newSection)
         }
 
@@ -227,7 +226,7 @@ export default function Index() {
         </button>
 
         <div className="hidden items-center gap-8 md:flex">
-          {["Главная", "Профессии", "Тест", "MBTI", "Менторы", "Биографии"].map((item, index) => (
+          {["Главная", "Профессии", "MBTI", "Менторы", "Биографии"].map((item, index) => (
             <button
               key={item}
               onClick={() => scrollToSection(index)}
@@ -299,7 +298,6 @@ export default function Index() {
         </section>
 
         <WorkSection scrollToSection={scrollToSection} />
-        <TestSection />
         <MbtiSection />
         <MentorsSection />
         <BiographiesSection />
