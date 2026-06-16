@@ -143,7 +143,7 @@ const PEOPLE = [
   {
     name: "Евгений Касперский",
     field: "Кибербезопасность",
-    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/aac72865-45bc-4eff-b6a4-2ca01bb68075.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/b54e4bc5-c397-4ca0-aabd-9788ac465fa8.jpg",
     short: "Основатель Kaspersky Lab",
     bio: "Увлёкся вирусами ещё в эпоху дискет. Создал одну из крупнейших в мире компаний по кибербезопасности, которая защищает сотни миллионов людей и тысячи корпораций по всему миру.",
     education: [
