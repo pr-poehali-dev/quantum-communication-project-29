@@ -3,14 +3,14 @@ import Icon from "@/components/ui/icon"
 import { MagneticButton } from "@/components/magnetic-button"
 
 const MENTORS = [
-  { name: "Алексей Воронов", role: "AI-инженер в IT-компании", topic: "Искусственный интеллект", icon: "Cpu", direction: "left" },
-  { name: "Мария Светлова", role: "Геймдизайнер игровой студии", topic: "Разработка игр", icon: "Gamepad2", direction: "top" },
-  { name: "Иван Космов", role: "Инженер аэрокосмической отрасли", topic: "Космос и ракеты", icon: "Rocket", direction: "right" },
-  { name: "Дарья Эко", role: "Эко-технолог стартапа", topic: "Зелёные технологии", icon: "Leaf", direction: "bottom" },
-  { name: "Сергей Капитал", role: "Финансовый директор (CFO)", topic: "Финансы компании", icon: "Landmark", direction: "left" },
-  { name: "Анна Рыкова", role: "Финансовый аналитик", topic: "Анализ рынков и данных", icon: "BarChart2", direction: "bottom" },
-  { name: "Павел Инвест", role: "Инвестиционный директор", topic: "Венчур и инвестиции", icon: "TrendingUp", direction: "top" },
-  { name: "Ольга Форма", role: "Основатель студии дизайна", topic: "Дизайн и брендинг", icon: "Palette", direction: "right" },
+  { name: "Ксения Черменская", role: "Фаундер · Ментор · Венчурный инвестор", topic: "Финансы · Инвестиции · IT", icon: "TrendingUp", photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/224b76bd-f6fb-42bb-b843-6dcc78768cbe.jpeg", bio: "Экс финансовый и инвестиционный директор крупных ИТ-компаний, более 15 лет в технологическом секторе, многодетная мать", direction: "left" },
+  { name: "Алексей Воронов", role: "AI-инженер в IT-компании", topic: "Искусственный интеллект", icon: "Cpu", photo: null, bio: null, direction: "top" },
+  { name: "Мария Светлова", role: "Геймдизайнер игровой студии", topic: "Разработка игр", icon: "Gamepad2", photo: null, bio: null, direction: "right" },
+  { name: "Иван Космов", role: "Инженер аэрокосмической отрасли", topic: "Космос и ракеты", icon: "Rocket", photo: null, bio: null, direction: "bottom" },
+  { name: "Дарья Эко", role: "Эко-технолог стартапа", topic: "Зелёные технологии", icon: "Leaf", photo: null, bio: null, direction: "left" },
+  { name: "Сергей Капитал", role: "Финансовый директор (CFO)", topic: "Финансы компании", icon: "Landmark", photo: null, bio: null, direction: "bottom" },
+  { name: "Анна Рыкова", role: "Финансовый аналитик", topic: "Анализ рынков и данных", icon: "BarChart2", photo: null, bio: null, direction: "top" },
+  { name: "Ольга Форма", role: "Основатель студии дизайна", topic: "Дизайн и брендинг", icon: "Palette", photo: null, bio: null, direction: "right" },
 ]
 
 export function MentorsSection() {
@@ -48,23 +48,18 @@ function MentorCard({
   index,
   isVisible,
 }: {
-  mentor: { name: string; role: string; topic: string; icon: string; direction: string }
+  mentor: { name: string; role: string; topic: string; icon: string; photo: string | null; bio: string | null; direction: string }
   index: number
   isVisible: boolean
 }) {
   const getRevealClass = () => {
     if (!isVisible) {
       switch (mentor.direction) {
-        case "left":
-          return "-translate-x-16 opacity-0"
-        case "right":
-          return "translate-x-16 opacity-0"
-        case "top":
-          return "-translate-y-16 opacity-0"
-        case "bottom":
-          return "translate-y-16 opacity-0"
-        default:
-          return "translate-y-12 opacity-0"
+        case "left": return "-translate-x-16 opacity-0"
+        case "right": return "translate-x-16 opacity-0"
+        case "top": return "-translate-y-16 opacity-0"
+        case "bottom": return "translate-y-16 opacity-0"
+        default: return "translate-y-12 opacity-0"
       }
     }
     return "translate-x-0 translate-y-0 opacity-100"
@@ -72,22 +67,40 @@ function MentorCard({
 
   return (
     <div
-      className={`group flex flex-col rounded-2xl border border-foreground/15 bg-foreground/10 p-5 backdrop-blur-md transition-all duration-700 hover:scale-[1.03] hover:border-foreground/30 hover:bg-foreground/20 ${getRevealClass()}`}
+      className={`group flex flex-col overflow-hidden rounded-2xl border border-foreground/15 bg-foreground/10 backdrop-blur-md transition-all duration-700 hover:scale-[1.03] hover:border-foreground/30 hover:bg-foreground/20 ${getRevealClass()}`}
       style={{ transitionDelay: `${index * 130}ms` }}
     >
-      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/20 transition-transform duration-300 group-hover:scale-110">
-        <Icon name={mentor.icon} className="text-foreground" size={22} />
-      </div>
-      <h3 className="mb-1 font-sans text-base font-light text-foreground">{mentor.name}</h3>
-      <p className="mb-1 text-xs text-foreground/70">{mentor.role}</p>
-      <p className="mb-4 font-mono text-xs text-foreground/50">{mentor.topic}</p>
-      <div className="mt-auto">
-        <MagneticButton variant="secondary" className="w-full">
-          <span className="flex items-center justify-center gap-2">
-            <Icon name="Video" size={16} />
-            Созвон в Zoom
-          </span>
-        </MagneticButton>
+      {mentor.photo ? (
+        <div className="relative h-44 w-full overflow-hidden">
+          <img
+            src={mentor.photo}
+            alt={mentor.name}
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        </div>
+      ) : (
+        <div className="flex h-16 items-end px-5 pt-5">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/20 transition-transform duration-300 group-hover:scale-110">
+            <Icon name={mentor.icon} className="text-foreground" size={22} />
+          </div>
+        </div>
+      )}
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="mb-1 font-sans text-base font-light text-foreground">{mentor.name}</h3>
+        <p className="mb-1 text-xs text-foreground/70">{mentor.role}</p>
+        <p className="mb-3 font-mono text-xs text-foreground/50">{mentor.topic}</p>
+        {mentor.bio && (
+          <p className="mb-3 text-xs leading-relaxed text-foreground/55">{mentor.bio}</p>
+        )}
+        <div className="mt-auto">
+          <MagneticButton variant="secondary" className="w-full">
+            <span className="flex items-center justify-center gap-2">
+              <Icon name="Video" size={16} />
+              Созвон в Zoom
+            </span>
+          </MagneticButton>
+        </div>
       </div>
     </div>
   )
