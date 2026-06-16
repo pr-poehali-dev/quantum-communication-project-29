@@ -130,7 +130,7 @@ const PEOPLE = [
   {
     name: "Сергей Брин",
     field: "IT и поиск",
-    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/e63d5ba6-2660-4e4a-86a0-a2881e0647ba.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/0e9a7ff0-f1c5-4e3c-93c3-63116e73c9da.jpg",
     short: "Сооснователь Google",
     bio: "Эмигрировал из СССР в 6 лет. В аспирантуре Стэнфорда вместе с Ларри Пейджем придумал алгоритм PageRank — основу Google. Сегодня Google обрабатывает более 8 миллиардов запросов в день.",
     education: [
