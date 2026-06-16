@@ -155,7 +155,7 @@ const PEOPLE = [
   {
     name: "Татьяна Бакальчук",
     field: "E-commerce и бизнес",
-    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/72a701f6-7549-48f2-abc4-73980a0d6347.jpg",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/bucket/43d478be-7fe0-41b6-b986-33b801987d62.jpeg",
     short: "Основатель Wildberries",
     bio: "Начала бизнес в декрете, продавая одежду из дома. Построила крупнейший маркетплейс России с оборотом свыше 2 триллионов рублей. Доказала, что большой бизнес можно начать с нуля, без связей и стартового капитала.",
     education: [
