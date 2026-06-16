@@ -9,6 +9,11 @@ const PEOPLE = [
     photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/0fe67089-12c7-405c-9160-5ed53d7660e1.jpg",
     short: "Основатель Tesla и SpaceX",
     bio: "С детства увлекался программированием и в 12 лет продал свою первую игру. Сегодня он строит электромобили и ракеты, мечтая сделать человечество межпланетным.",
+    education: [
+      { type: "Школа", name: "Waterkloof House Preparatory School, Претория" },
+      { type: "Вуз", name: "Университет Пенсильвании — физика и экономика" },
+      { type: "Вуз", name: "Stanford University (поступил, но бросил ради бизнеса)" },
+    ],
     direction: "left",
   },
   {
@@ -17,6 +22,10 @@ const PEOPLE = [
     photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/8aade7a0-4bc6-4bdc-9082-ebc628e2b2c2.jpg",
     short: "Сооснователь Apple",
     bio: "Соединил технологии и искусство, изменив то, как мы пользуемся компьютерами и телефонами. Верил, что простота — высшая форма совершенства.",
+    education: [
+      { type: "Школа", name: "Homestead High School, Купертино, Калифорния" },
+      { type: "Вуз", name: "Reed College, Портленд (бросил после 1 семестра)" },
+    ],
     direction: "top",
   },
   {
@@ -25,6 +34,11 @@ const PEOPLE = [
     photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/c7dfd6b4-e076-4450-83c6-80ddb68e50d8.jpg",
     short: "Первый дважды нобелевский лауреат",
     bio: "Несмотря на все преграды для женщин её времени, стала великим учёным и открыла радиоактивность, заложив основы современной физики и медицины.",
+    education: [
+      { type: "Школа", name: "Женская гимназия Я. Сикорской, Варшава" },
+      { type: "Вуз", name: "Университет Париж VI (Сорбонна) — физика и математика" },
+      { type: "Степень", name: "Первая женщина с докторской степенью по физике во Франции" },
+    ],
     direction: "bottom",
   },
   {
@@ -33,6 +47,11 @@ const PEOPLE = [
     photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/4f7c727d-b4b6-4312-9b48-02317541fb3f.jpg",
     short: "Режиссёр студии Ghibli",
     bio: "Создал волшебные миры, которые вдохновляют миллионы. Доказал, что упорство и любовь к делу превращают мечту в шедевр.",
+    education: [
+      { type: "Школа", name: "Оёгита Высшая школа, Токио" },
+      { type: "Вуз", name: "Университет Гакусюин — политэкономия" },
+      { type: "Опыт", name: "Самоучка в анимации: начинал с Toei Animation с нуля" },
+    ],
     direction: "right",
   },
 ]
@@ -82,7 +101,7 @@ function PersonCard({
   isActive,
   onToggle,
 }: {
-  person: { name: string; field: string; photo: string; short: string; bio: string; direction: string }
+  person: { name: string; field: string; photo: string; short: string; bio: string; education: { type: string; name: string }[]; direction: string }
   index: number
   isVisible: boolean
   isActive: boolean
@@ -133,9 +152,22 @@ function PersonCard({
       <div className="p-5">
         <h3 className="mb-1 font-sans text-xl font-light text-foreground">{person.name}</h3>
         <p className="mb-3 font-mono text-xs text-foreground/50">{person.field}</p>
-        <p className="text-sm leading-relaxed text-foreground/80">
+        <p className="mb-0 text-sm leading-relaxed text-foreground/80">
           {isActive ? person.bio : person.short}
         </p>
+        {isActive && (
+          <div className="mt-4 space-y-2 border-t border-foreground/10 pt-4">
+            <p className="mb-2 font-mono text-xs text-foreground/40">Образование</p>
+            {person.education.map((edu) => (
+              <div key={edu.name} className="flex gap-2">
+                <span className="mt-0.5 shrink-0 rounded bg-foreground/15 px-1.5 py-0.5 font-mono text-xs text-foreground/50">
+                  {edu.type}
+                </span>
+                <span className="text-xs leading-snug text-foreground/70">{edu.name}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </button>
   )
