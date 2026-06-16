@@ -11,7 +11,7 @@ const PEOPLE = [
     bio: "С детства увлекался программированием и в 12 лет продал свою первую игру. Сегодня он строит электромобили и ракеты, мечтая сделать человечество межпланетным.",
     education: [
       { type: "Школа", name: "Waterkloof House Preparatory School, Претория — общеобразовательная программа с упором на точные науки" },
-      { type: "Вуз", name: "Университет Пенсильвании — двойная специализация: физика (факультет Arts & Sciences) и экономика (Wharton School)" },
+      { type: "Вуз", name: "Университет Пенсильвании — двойная специализация: физика (Arts & Sciences) и экономика (Wharton School)" },
       { type: "Вуз", name: "Stanford University — поступил на PhD по энергетической физике, бросил через 2 дня ради запуска Zip2" },
     ],
     direction: "left",
@@ -24,7 +24,7 @@ const PEOPLE = [
     bio: "Соединил технологии и искусство, изменив то, как мы пользуемся компьютерами и телефонами. Верил, что простота — высшая форма совершенства.",
     education: [
       { type: "Школа", name: "Homestead High School, Купертино — общая программа, посещал кружок электроники в HP" },
-      { type: "Вуз", name: "Reed College, Портленд — специализация: гуманитарные науки и философия, бросил после 1 семестра, но вольнослушателем ходил на каллиграфию — именно она вдохновила шрифты Mac" },
+      { type: "Вуз", name: "Reed College, Портленд — гуманитарные науки и философия, бросил после 1 семестра; вольнослушателем изучал каллиграфию — она вдохновила шрифты Mac" },
     ],
     direction: "top",
   },
@@ -35,9 +35,9 @@ const PEOPLE = [
     short: "Первый дважды нобелевский лауреат",
     bio: "Несмотря на все преграды для женщин её времени, стала великим учёным и открыла радиоактивность, заложив основы современной физики и медицины.",
     education: [
-      { type: "Школа", name: "Женская гимназия Я. Сикорской, Варшава — классическая программа: математика, физика, иностранные языки" },
-      { type: "Вуз", name: "Сорбонна (Париж) — лицензиат по физике (1893) и по математике (1894), окончила первой в своём выпуске по физике" },
-      { type: "Степень", name: "Сорбонна — докторантура по физике, тема: исследование радиоактивности. Первая женщина с PhD по физике во Франции (1903)" },
+      { type: "Школа", name: "Женская гимназия Я. Сикорской, Варшава — математика, физика, иностранные языки" },
+      { type: "Вуз", name: "Сорбонна (Париж) — лицензиат по физике (1893) и математике (1894), окончила первой в выпуске" },
+      { type: "Степень", name: "Сорбонна — PhD по физике, тема: исследование радиоактивности (1903); первая женщина с докторской во Франции" },
     ],
     direction: "bottom",
   },
@@ -48,9 +48,107 @@ const PEOPLE = [
     short: "Режиссёр студии Ghibli",
     bio: "Создал волшебные миры, которые вдохновляют миллионы. Доказал, что упорство и любовь к делу превращают мечту в шедевр.",
     education: [
-      { type: "Школа", name: "Оёгита Высшая школа, Токио — гуманитарный профиль, увлекался рисованием манги и авиамоделированием" },
-      { type: "Вуз", name: "Университет Гакусюин, Токио — специализация: политическая экономия (факультет политики и экономики), 1963" },
-      { type: "Опыт", name: "Toei Animation — начал рядовым аниматором, самостоятельно освоил всё: раскадровку, режиссуру, сценарий и концепт-арт" },
+      { type: "Школа", name: "Оёгита Высшая школа, Токио — гуманитарный профиль, увлекался мангой и авиамоделированием" },
+      { type: "Вуз", name: "Университет Гакусюин, Токио — специализация: политическая экономия, 1963" },
+      { type: "Опыт", name: "Toei Animation — начал рядовым аниматором, самостоятельно освоил раскадровку, режиссуру и сценарий" },
+    ],
+    direction: "right",
+  },
+  {
+    name: "Льюис Хэмилтон",
+    field: "Автоспорт",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg/800px-Lewis_Hamilton_2016_Malaysia_2.jpg",
+    short: "7-кратный чемпион Формулы 1",
+    bio: "Вырос в скромной семье, начал картинг в 8 лет. Стал первым темнокожим чемпионом Ф1 и побил рекорд Михаэля Шумахера по числу побед. Доказал: целеустремлённость важнее происхождения.",
+    education: [
+      { type: "Школа", name: "Cambridge Arts and Sciences (CATS), Кембридж — общеобразовательная программа" },
+      { type: "Опыт", name: "Академия McLaren с 13 лет — профессиональная подготовка гонщика вместо классического вуза" },
+    ],
+    direction: "left",
+  },
+  {
+    name: "Билли Айлиш",
+    field: "Музыка",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Billie_Eilish_2019.png/800px-Billie_Eilish_2019.png",
+    short: "Самый молодой автор песни к фильму о Бонде",
+    bio: "Записала первый хит в 14 лет прямо в спальне брата. В 18 стала самым молодым артистом, выигравшим Grammy во всех четырёх главных номинациях за один вечер.",
+    education: [
+      { type: "Школа", name: "Домашнее обучение (Лос-Анджелес) — родители-актёры сами вели занятия, много времени уделяя творчеству" },
+      { type: "Опыт", name: "Los Angeles Children's Chorus — хоровое пение с детства заложило музыкальную базу" },
+      { type: "Опыт", name: "Самообучение вокалу и продюсированию совместно с братом Финнеасом" },
+    ],
+    direction: "top",
+  },
+  {
+    name: "Снуп Догг",
+    field: "Музыка и медиа",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Snoop_Dogg_-_Westfield_Sydney_%28cropped%29.jpg/800px-Snoop_Dogg_-_Westfield_Sydney_%28cropped%29.jpg",
+    short: "Рэпер, медиамагнат и телеведущий Олимпиады",
+    bio: "Вырос в Лонг-Биче в тяжёлых условиях. Через музыку создал медиаимперию, стал иконой поп-культуры и неожиданно — официальным репортёром NBC на Олимпиаде 2024.",
+    education: [
+      { type: "Школа", name: "Polytechnic High School, Лонг-Бич — футбол и музыка, дружил с Кобе Брайантом" },
+      { type: "Опыт", name: "Самообразование в музыке: рэп, бит-мейкинг и бизнес — без профильного образования" },
+    ],
+    direction: "bottom",
+  },
+  {
+    name: "Джонатан Айв",
+    field: "Промышленный дизайн",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Jonathan_Ive_2010.jpg/800px-Jonathan_Ive_2010.jpg",
+    short: "Главный дизайнер iPhone, iMac и MacBook",
+    bio: "Создал облик большинства культовых продуктов Apple — от iMac 1998 до iPhone. Его принцип: дизайн — это не про внешность, а про суть вещи.",
+    education: [
+      { type: "Школа", name: "Walton High School, Сток-он-Трент — увлекался черчением и промышленным дизайном" },
+      { type: "Вуз", name: "Northumbria University, Ньюкасл — специализация: промышленный дизайн (BA), окончил с отличием, 1989" },
+    ],
+    direction: "right",
+  },
+  {
+    name: "Павел Дуров",
+    field: "IT и социальные сети",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/sixty/Pavel_Durov_on_stage_at_TechCrunch_Disrupt_SF_2015.jpg/800px-Pavel_Durov_on_stage_at_TechCrunch_Disrupt_SF_2015.jpg",
+    short: "Основатель ВКонтакте и Telegram",
+    bio: "Создал крупнейшую русскоязычную соцсеть ещё в студенчестве, а после конфликта с властями покинул Россию и построил Telegram — один из самых популярных мессенджеров в мире.",
+    education: [
+      { type: "Школа", name: "Академическая гимназия при СПбГУ — углублённое изучение математики, физики и иностранных языков" },
+      { type: "Вуз", name: "Санкт-Петербургский государственный университет — филологический факультет, специализация: английская филология, 2006" },
+    ],
+    direction: "left",
+  },
+  {
+    name: "Аркадий Волож",
+    field: "IT и поиск",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Arkady_Volozh_-_Yandex.jpg/800px-Arkady_Volozh_-_Yandex.jpg",
+    short: "Сооснователь Яндекса",
+    bio: "Создал крупнейшую технологическую компанию России и построил поисковик, который конкурирует с Google на русскоязычном рынке. Верил в силу данных и алгоритмов задолго до эпохи больших данных.",
+    education: [
+      { type: "Школа", name: "Средняя школа в Алма-Ате — математический класс, участник олимпиад" },
+      { type: "Вуз", name: "Институт нефти и газа им. Губкина, Москва — прикладная математика, 1986" },
+    ],
+    direction: "top",
+  },
+  {
+    name: "Сергей Брин",
+    field: "IT и поиск",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sergey_Brin_Ted_2010.jpg/800px-Sergey_Brin_Ted_2010.jpg",
+    short: "Сооснователь Google",
+    bio: "Эмигрировал из СССР в 6 лет. В аспирантуре Стэнфорда вместе с Ларри Пейджем придумал алгоритм PageRank — основу Google. Сегодня Google обрабатывает более 8 миллиардов запросов в день.",
+    education: [
+      { type: "Школа", name: "Eleanor Roosevelt High School, Мэриленд — математика и информатика" },
+      { type: "Вуз", name: "Университет Мэриленда — математика и информатика (BS), окончил в 19 лет с отличием" },
+      { type: "Вуз", name: "Stanford University — аспирантура по computer science, бросил ради создания Google" },
+    ],
+    direction: "bottom",
+  },
+  {
+    name: "Евгений Касперский",
+    field: "Кибербезопасность",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Eugene_Kaspersky_2012.jpg/800px-Eugene_Kaspersky_2012.jpg",
+    short: "Основатель Kaspersky Lab",
+    bio: "Увлёкся вирусами ещё в эпоху дискет. Создал одну из крупнейших в мире компаний по кибербезопасности, которая защищает сотни миллионов людей и тысячи корпораций по всему миру.",
+    education: [
+      { type: "Школа", name: "Физико-математическая школа-интернат № 18 при МГУ — углублённая математика и физика" },
+      { type: "Вуз", name: "Высшая краснознамённая школа КГБ СССР / Институт криптографии, связи и информатики — математика и криптография, 1987" },
     ],
     direction: "right",
   },
@@ -63,11 +161,11 @@ export function BiographiesSection() {
   return (
     <section
       ref={ref}
-      className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16"
+      className="flex h-screen w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col pb-6">
         <div
-          className={`mb-8 transition-all duration-700 md:mb-12 ${
+          className={`mb-6 shrink-0 transition-all duration-700 ${
             isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
           }`}
         >
@@ -77,17 +175,19 @@ export function BiographiesSection() {
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Истории тех, кто вдохновляет</p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {PEOPLE.map((person, i) => (
-            <PersonCard
-              key={i}
-              person={person}
-              index={i}
-              isVisible={isVisible}
-              isActive={active === i}
-              onToggle={() => setActive(active === i ? null : i)}
-            />
-          ))}
+        <div className="flex-1 overflow-y-auto" style={{ scrollbarWidth: "none" }}>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {PEOPLE.map((person, i) => (
+              <PersonCard
+                key={i}
+                person={person}
+                index={i}
+                isVisible={isVisible}
+                isActive={active === i}
+                onToggle={() => setActive(active === i ? null : i)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
