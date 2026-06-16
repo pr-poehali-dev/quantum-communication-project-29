@@ -6,7 +6,7 @@ const PEOPLE = [
   {
     name: "Илон Маск",
     field: "Технологии и космос",
-    icon: "Rocket",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/0fe67089-12c7-405c-9160-5ed53d7660e1.jpg",
     short: "Основатель Tesla и SpaceX",
     bio: "С детства увлекался программированием и в 12 лет продал свою первую игру. Сегодня он строит электромобили и ракеты, мечтая сделать человечество межпланетным.",
     direction: "left",
@@ -14,7 +14,7 @@ const PEOPLE = [
   {
     name: "Стив Джобс",
     field: "Дизайн и технологии",
-    icon: "Apple",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/8aade7a0-4bc6-4bdc-9082-ebc628e2b2c2.jpg",
     short: "Сооснователь Apple",
     bio: "Соединил технологии и искусство, изменив то, как мы пользуемся компьютерами и телефонами. Верил, что простота — высшая форма совершенства.",
     direction: "top",
@@ -22,7 +22,7 @@ const PEOPLE = [
   {
     name: "Мария Кюри",
     field: "Наука",
-    icon: "Atom",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/c7dfd6b4-e076-4450-83c6-80ddb68e50d8.jpg",
     short: "Первый дважды нобелевский лауреат",
     bio: "Несмотря на все преграды для женщин её времени, стала великим учёным и открыла радиоактивность, заложив основы современной физики и медицины.",
     direction: "bottom",
@@ -30,7 +30,7 @@ const PEOPLE = [
   {
     name: "Хаяо Миядзаки",
     field: "Анимация и искусство",
-    icon: "Clapperboard",
+    photo: "https://cdn.poehali.dev/projects/9886e8ff-c2a2-4890-9e1e-5e43e9e01c6a/files/4f7c727d-b4b6-4312-9b48-02317541fb3f.jpg",
     short: "Режиссёр студии Ghibli",
     bio: "Создал волшебные миры, которые вдохновляют миллионы. Доказал, что упорство и любовь к делу превращают мечту в шедевр.",
     direction: "right",
@@ -82,7 +82,7 @@ function PersonCard({
   isActive,
   onToggle,
 }: {
-  person: { name: string; field: string; icon: string; short: string; bio: string; direction: string }
+  person: { name: string; field: string; photo: string; short: string; bio: string; direction: string }
   index: number
   isVisible: boolean
   isActive: boolean
@@ -109,24 +109,34 @@ function PersonCard({
   return (
     <button
       onClick={onToggle}
-      className={`group flex flex-col rounded-2xl border border-foreground/15 bg-foreground/10 p-5 text-left backdrop-blur-md transition-all duration-700 hover:border-foreground/30 hover:bg-foreground/20 ${getRevealClass()}`}
+      className={`group flex flex-col overflow-hidden rounded-2xl border border-foreground/15 bg-foreground/10 text-left backdrop-blur-md transition-all duration-700 hover:border-foreground/30 hover:bg-foreground/20 ${getRevealClass()}`}
       style={{ transitionDelay: `${index * 130}ms` }}
     >
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-foreground/20 transition-transform duration-300 group-hover:scale-110">
-          <Icon name={person.icon} className="text-foreground" size={26} fallback="User" />
-        </div>
-        <Icon
-          name="ChevronDown"
-          className={`text-foreground/50 transition-transform duration-300 ${isActive ? "rotate-180" : ""}`}
-          size={20}
+      {/* Фото */}
+      <div className="relative h-48 w-full overflow-hidden">
+        <img
+          src={person.photo}
+          alt={person.name}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-3 right-3">
+          <Icon
+            name="ChevronDown"
+            className={`text-white/70 transition-transform duration-300 ${isActive ? "rotate-180" : ""}`}
+            size={20}
+          />
+        </div>
       </div>
-      <h3 className="mb-1 font-sans text-xl font-light text-foreground">{person.name}</h3>
-      <p className="mb-3 font-mono text-xs text-foreground/50">{person.field}</p>
-      <p className="text-sm leading-relaxed text-foreground/80">
-        {isActive ? person.bio : person.short}
-      </p>
+
+      {/* Текст */}
+      <div className="p-5">
+        <h3 className="mb-1 font-sans text-xl font-light text-foreground">{person.name}</h3>
+        <p className="mb-3 font-mono text-xs text-foreground/50">{person.field}</p>
+        <p className="text-sm leading-relaxed text-foreground/80">
+          {isActive ? person.bio : person.short}
+        </p>
+      </div>
     </button>
   )
 }
