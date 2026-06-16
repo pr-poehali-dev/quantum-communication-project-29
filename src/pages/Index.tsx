@@ -5,6 +5,7 @@ import { WorkSection } from "@/components/sections/work-section"
 import { MbtiSection } from "@/components/sections/mbti-section"
 import { MentorsSection } from "@/components/sections/mentors-section"
 import { BiographiesSection } from "@/components/sections/biographies-section"
+import { OrientationSection } from "@/components/sections/orientation-section"
 import { MagneticButton } from "@/components/magnetic-button"
 import { useRef, useEffect, useState } from "react"
 
@@ -77,7 +78,7 @@ export default function Index() {
       const deltaX = touchStartX.current - touchEndX
 
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
-        if (deltaY > 0 && currentSection < 5) {
+        if (deltaY > 0 && currentSection < 6) {
           scrollToSection(currentSection + 1)
         } else if (deltaY < 0 && currentSection > 0) {
           scrollToSection(currentSection - 1)
@@ -226,7 +227,7 @@ export default function Index() {
         </button>
 
         <div className="hidden items-center gap-8 md:flex">
-          {["Главная", "Профессии", "MBTI", "Менторы", "Биографии"].map((item, index) => (
+          {["Главная", "Профессии", "MBTI", "Менторы", "Биографии", "Профориентация"].map((item, index) => (
             <button
               key={item}
               onClick={() => scrollToSection(index)}
@@ -301,6 +302,7 @@ export default function Index() {
         <MbtiSection />
         <MentorsSection />
         <BiographiesSection />
+        <OrientationSection />
       </div>
 
       <style>{`
