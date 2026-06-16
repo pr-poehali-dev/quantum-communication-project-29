@@ -205,7 +205,7 @@ export function MbtiSection({ onShowProfessions }: { onShowProfessions?: (tab: "
   return (
     <section
       ref={ref}
-      className="flex w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
+      className="flex w-screen shrink-0 snap-start items-start px-6 pt-24 md:px-12 lg:px-16"
       style={{ height: "100dvh" }}
     >
       <div className="mx-auto flex h-full w-full max-w-3xl flex-col pb-6">

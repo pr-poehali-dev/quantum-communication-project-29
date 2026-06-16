@@ -140,7 +140,7 @@ export function OrientationSection() {
   return (
     <section
       ref={ref}
-      className="flex w-screen shrink-0 snap-start items-start px-6 pt-20 md:px-12 lg:px-16"
+      className="flex w-screen shrink-0 snap-start items-start px-6 pt-24 md:px-12 lg:px-16"
       style={{ height: "100dvh" }}
     >
       <div className="mx-auto w-full max-w-6xl">

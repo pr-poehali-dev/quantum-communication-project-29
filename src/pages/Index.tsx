@@ -277,7 +277,7 @@ export default function Index() {
         style={{ height: "100dvh", scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Hero Section */}
-        <section className="flex w-screen shrink-0 flex-col justify-center px-6 pt-20 pb-8 md:px-12 md:justify-end md:pb-24" style={{ minHeight: "100dvh" }}>
+        <section className="flex w-screen shrink-0 flex-col justify-center px-6 pt-20 pb-8 md:px-12 md:justify-center md:pb-8" style={{ minHeight: "100dvh" }}>
           <div className="max-w-3xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
               <p className="font-mono text-xs text-foreground/90">Профориентация для поколения Alpha</p>
