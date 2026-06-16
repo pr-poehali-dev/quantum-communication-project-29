@@ -7,6 +7,10 @@ const MENTORS = [
   { name: "Мария Светлова", role: "Геймдизайнер игровой студии", topic: "Разработка игр", icon: "Gamepad2", direction: "top" },
   { name: "Иван Космов", role: "Инженер аэрокосмической отрасли", topic: "Космос и ракеты", icon: "Rocket", direction: "right" },
   { name: "Дарья Эко", role: "Эко-технолог стартапа", topic: "Зелёные технологии", icon: "Leaf", direction: "bottom" },
+  { name: "Сергей Капитал", role: "Финансовый директор (CFO)", topic: "Финансы компании", icon: "Landmark", direction: "left" },
+  { name: "Анна Рыкова", role: "Финансовый аналитик", topic: "Анализ рынков и данных", icon: "BarChart2", direction: "bottom" },
+  { name: "Павел Инвест", role: "Инвестиционный директор", topic: "Венчур и инвестиции", icon: "TrendingUp", direction: "top" },
+  { name: "Ольга Форма", role: "Основатель студии дизайна", topic: "Дизайн и брендинг", icon: "Palette", direction: "right" },
 ]
 
 export function MentorsSection() {
@@ -29,7 +33,7 @@ export function MentorsSection() {
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Поговори с профессионалом в Zoom</p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {MENTORS.map((mentor, i) => (
             <MentorCard key={i} mentor={mentor} index={i} isVisible={isVisible} />
           ))}
@@ -71,12 +75,12 @@ function MentorCard({
       className={`group flex flex-col rounded-2xl border border-foreground/15 bg-foreground/10 p-5 backdrop-blur-md transition-all duration-700 hover:scale-[1.03] hover:border-foreground/30 hover:bg-foreground/20 ${getRevealClass()}`}
       style={{ transitionDelay: `${index * 130}ms` }}
     >
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-foreground/20 transition-transform duration-300 group-hover:scale-110">
-        <Icon name={mentor.icon} className="text-foreground" size={26} />
+      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/20 transition-transform duration-300 group-hover:scale-110">
+        <Icon name={mentor.icon} className="text-foreground" size={22} />
       </div>
-      <h3 className="mb-1 font-sans text-xl font-light text-foreground">{mentor.name}</h3>
-      <p className="mb-1 text-sm text-foreground/70">{mentor.role}</p>
-      <p className="mb-5 font-mono text-xs text-foreground/50">{mentor.topic}</p>
+      <h3 className="mb-1 font-sans text-base font-light text-foreground">{mentor.name}</h3>
+      <p className="mb-1 text-xs text-foreground/70">{mentor.role}</p>
+      <p className="mb-4 font-mono text-xs text-foreground/50">{mentor.topic}</p>
       <div className="mt-auto">
         <MagneticButton variant="secondary" className="w-full">
           <span className="flex items-center justify-center gap-2">
