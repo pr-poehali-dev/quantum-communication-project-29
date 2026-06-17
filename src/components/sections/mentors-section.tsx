@@ -31,7 +31,20 @@ export function MentorsSection() {
           <h2 className="mb-2 font-sans text-4xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Менторы
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Поговори с профессионалом в Zoom</p>
+          <p className="mb-4 font-mono text-sm text-foreground/60 md:text-base">/ Поговори с профессионалом в Zoom</p>
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            <p className="font-mono text-xs text-foreground/40 uppercase tracking-widest">Как попробовать себя?</p>
+            <div className="flex flex-wrap gap-3">
+              <span className="flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/10 px-3 py-1 font-mono text-xs text-foreground/70">
+                <Icon name="MessageCircle" size={12} />
+                Пообщаться с тем, кто уже работает в отрасли
+              </span>
+              <span className="flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/10 px-3 py-1 font-mono text-xs text-foreground/70">
+                <Icon name="Briefcase" size={12} />
+                Пройти стажировку
+              </span>
+            </div>
+          </div>
         </div>
 
         <div className="flex-1 overflow-y-auto" style={{ scrollbarWidth: "none" }}>
